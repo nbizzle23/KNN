@@ -1,0 +1,240 @@
+---
+title: "K Nearest Neighbours Using NBA Player Data"
+author: "Nicholas Burke"
+date: "05 December 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+This project with the use the computer program R will use the K-Nearest-Neighbours algorithm to predict the position of NBA players based on their regular season statistics.  
+
+The k-nearest neighbours algorithm predicts unknown values by matching them alongside very or “most” similar known values. Since the KKN model is a straight forward approach based on memory it cannot be summarized in closed-form fashion. Meaning the training samples are required at run-time and predictions are made upon relationship among samples. The value of k in this algorithm can be any value less than the number of rows in the data frame. The aim is to examine a small number of neighbours for better algorithm performance, due to the fact that the less similar the neighbours are to in the data, the worse the prediction will be.
+
+In order to find the most similar NBA players we will use the principle of Euclidean distance, simply measuring the straight-line distance between two players. 
+
+First import data from the website [basketballreference.com](https://www.basketball-reference.com/)
+
+## NBA Statistics in R 
+
+```{r}
+library(ballr) 
+library (magrittr) 
+library (ggplot2)
+library (janitor) 
+library (scales) 
+library(dplyr)
+library(ggplot2)
+library(rsample)    
+library(recipes)    
+
+```
+
+We call the per game statistics from the 2018-2019 NBA regular season.
+Based on their respective statistics that have been tracked and documented throughout the season.
+
+The statistics include:
+
+•	Games
+
+•	 Games started
+
+•	Minutes played
+
+•	 2pt & 3pt field goals/attempts
+
+•	Free throws/attempts
+
+•	 Assists, turnovers
+
+•	Offensive/ Defensive and Total Rebounds
+
+•	Fouls
+
+•	Blocks 
+
+•	Steals
+
+•	Total points
+
+In order to view the per game statistics of each player in the NBA for 2019 regular season we must call the function
+
+```{r}
+players <- NBAPerGameStatistics(season = 2019)
+head(players)
+
+```
+
+Now we will create a data frame with only numeric values and the 
+player’s name and position.  Using the following columns
+
+•	“pos”,
+
+•	“g” 
+
+•	“gs”
+
+•	"player"    
+
+•	"pos"       
+
+•	"age"        
+
+•	"mp"         
+
+•	"fg"        
+
+•	"fga"        
+
+•	"fgpercent"  
+
+•	"x3p"       
+
+•	"x3pa"     
+
+•	"x3ppercent"
+
+•	"x2p"        
+
+•	"x2pa"       
+
+•	"x2ppercent" 
+
+•	"efgpercent" 
+
+•	"ft"         
+
+•	"fta"       
+
+•	"ftpercent"  
+
+•	"orb"     
+
+•	"drb"       
+
+•	"trb"       
+
+•	"ast"     
+
+•	"stl"    
+
+•	"blk" 
+
+•	"tov" 
+
+•	"pf"       
+
+•	"pts"        
+
+•	"tpts"      
+
+```{r}
+colnames(players)
+```
+
+```{r}
+PerGame<- players %>% select(player, pos, g , gs, age, mp, fg, fga,fgpercent,x3p, x3pa, x3ppercent, x2p,x2pa, x2ppercent, efgpercent,ft,fta,ftpercent,orb,drb,trb,ast,stl,blk,tov,pf,pts)
+head(PerGame)
+
+```
+
+
+Here is the row for the 2019 NBA MVP Giannis Antetokounmpo statistics for the regular season.
+
+```{r}
+Giannis <- filter(PerGame,player == 'Giannis Antetokounmpo')
+Giannis
+```
+
+Now we must normalize and standardize each column because larger variables have a greater effect on the distance between the observations, and hence on the overall KNN classifier, than smaller variables. Thus each variable will have a mean of 0 and a standard deviation of 1.
+
+Since we are trying to predict the total amount of point a player scored we will save the ‘tpts’ column separately.
+
+
+## Standardizing Data
+
+Now using the scale function in R will now standardize the rest of the PerGame dataset
+
+```{r}
+Standardized.PerGame <- PerGame %>% mutate_at(c( 'g' , 'gs', 'age', 'mp', 'fg', 'fga','fgpercent','x3p', 'x3pa', 'x3ppercent', 'x2p','x2pa', 'x2ppercent', 'efgpercent','ft','fta','ftpercent','orb','drb','trb','ast','stl','blk','tov','pf','pts' ), funs(c(scale(.))))
+head(Standardized.PerGame)
+
+```
+
+Lets do a quick check on variance of the ‘fg’ column to verify that the scaling worked.
+
+
+```{r}
+var(Standardized.PerGame[,'fg'])
+```
+
+Now will we created train and test split set to run the KNN algorithm. Using random sampling, from the  standardized.PerGame data frame, and then pick rows using the randomly shuffled values.
+
+First will we remove all the rows that have a NA value for the KNN function will not work.
+
+```{r}
+Standardized.PerGame1 <- na.omit(Standardized.PerGame)
+```
+
+## Training and Test Set
+We will create training (70%) set and 30% test set now.
+
+
+```{r}
+library(caTools)
+set.seed(123)
+split = sample.split(Standardized.PerGame1$pos, SplitRatio = 0.7)
+train = subset(Standardized.PerGame1, split == TRUE)
+test = subset(Standardized.PerGame1, split == FALSE)
+```
+
+
+## KNN model
+Now we can construct our K Nearest Neighbour model. Using the knn function to predict the total amount of points a player scored on our test set. For simplicity sake we will use k=1.
+
+```{r}
+library(class)
+predicted.pos <- knn(train[,c( 'g' , 'gs', 'age', 'mp', 'fg', 'fga','fgpercent','x3p', 'x3pa', 'x3ppercent', 'x2p','x2pa', 'x2ppercent', 'efgpercent','ft','fta','ftpercent','orb','drb','trb','ast','stl','blk','tov','pf','pts' )],test[,c( 'g' , 'gs', 'age', 'mp', 'fg', 'fga','fgpercent','x3p', 'x3pa', 'x3ppercent', 'x2p','x2pa', 'x2ppercent', 'efgpercent','ft','fta','ftpercent','orb','drb','trb','ast','stl','blk','tov','pf','pts' )],train$pos,k=5)
+predicted.pos
+```
+
+### Misclassification Rate
+Now we can calculate the misclassification rate of our model
+
+```{r}
+mean(test$pos != predicted.pos)
+```
+
+This value is a bit high which is  to be expected with k=1 and such a high number of data points in our dataframe.
+
+Choosing a more appropriate K value is key to the viable of our model, creating a chart of the error misclassification rate for k values, will help visualize the right choice of K. The K values in the chart will range from 1 to 10. This process can be automated with a for() loop.
+
+```{r}
+predicted.pos <- NULL
+error.rate <- NULL
+
+for(i in 1:10){
+  set.seed(123)
+  predicted.pos <- knn(train[,c( 'g' , 'gs', 'age', 'mp', 'fg', 'fga','fgpercent','x3p', 'x3pa', 'x3ppercent', 'x2p','x2pa', 'x2ppercent', 'efgpercent','ft','fta','ftpercent','orb','drb','trb','ast','stl','blk','tov','pf','pts' )],test[,c( 'g' , 'gs', 'age', 'mp', 'fg', 'fga','fgpercent','x3p', 'x3pa', 'x3ppercent', 'x2p','x2pa', 'x2ppercent', 'efgpercent','ft','fta','ftpercent','orb','drb','trb','ast','stl','blk','tov','pf','pts' )],train$pos,k=i)
+    error.rate[i] <- mean(test$pos != predicted.pos)
+}
+
+
+print(error.rate)
+  
+k.values <- 1:20
+
+  error.df <- data.frame(error.rate,k.values)
+
+  error.df
+
+ ggplot(error.df,aes(x=k.values,y=error.rate)) + geom_point()+ geom_line(lty="dotted",color='red')
+
+```
+
+Here we can clearly see that increasing beyond K=11 does not help our misclassification at all. So we can set that as the K for our model during training.
+
