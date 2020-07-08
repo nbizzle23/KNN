@@ -1,5 +1,5 @@
 # KNN
-Fitting the [KNN] (https://rpubs.com/nburke2/636855) model on the NBA players' position using statistics from the 2018-2019 regular season.
+Fitting the [KNN](https://rpubs.com/nburke2/636855) model on the NBA players' position using statistics from the 2018-2019 regular season.
 
 
 ## Getting Started
