@@ -26,9 +26,9 @@ library (ggplot2)
 library (janitor) 
 library (scales) 
 library(dplyr)
-library(rsample)    
+library(rsample)  
 library(recipes)    
-
+library(knitr)
 ```
 
 We call the per game statistics from the 2018-2019 NBA regular season.
@@ -62,7 +62,7 @@ In order to view the per game statistics of each player in the NBA for 2019 regu
 
 ```{r}
 players <- NBAPerGameStatistics(season = 2019)
-head(players)
+kable(head(players))
 
 ```
 
@@ -136,7 +136,7 @@ player’s name and position.  Using the following columns
 
 ```{r}
 PerGame<- players %>% select(player, pos, g , gs, age, mp, fg, fga,fgpercent,x3p, x3pa, x3ppercent, x2p,x2pa, x2ppercent, efgpercent,ft,fta,ftpercent,orb,drb,trb,ast,stl,blk,tov,pf,pts)
-head(PerGame)
+kable(head(PerGame))
 
 ```
 
@@ -145,7 +145,7 @@ Here is the row for the 2019 NBA MVP Giannis Antetokounmpo statistics for the re
 
 ```{r}
 Giannis <- filter(PerGame,player == 'Giannis Antetokounmpo')
-Giannis
+kable(Giannis)
 ```
 
 Now we must normalize and standardize each column because larger variables have a greater effect on the distance between the observations, and hence on the overall KNN classifier, than smaller variables. Thus each variable will have a mean of 0 and a standard deviation of 1.
@@ -159,7 +159,7 @@ Using the scale function in R, we will now standardize the rest of the PerGame d
 
 ```{r}
 Standardized.PerGame <- PerGame %>% mutate_at(c( 'g' , 'gs', 'age', 'mp', 'fg', 'fga','fgpercent','x3p', 'x3pa', 'x3ppercent', 'x2p','x2pa', 'x2ppercent', 'efgpercent','ft','fta','ftpercent','orb','drb','trb','ast','stl','blk','tov','pf','pts' ), funs(c(scale(.))))
-head(Standardized.PerGame)
+kable(head(Standardized.PerGame))
 
 ```
 

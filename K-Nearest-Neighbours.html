@@ -207,19 +207,243 @@ summary {
 <p>• Steals</p>
 <p>• Total points</p>
 <p>In order to view the per game statistics of each player in the NBA for 2019 regular season we must call the function</p>
-<pre><code>## # A tibble: 6 x 31
-##      rk player pos     age tm        g    gs    mp    fg   fga fgpercent   x3p
-##   &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;
-## 1     1 Álex ~ SG       25 OKC      31     2  19     1.8   5.1     0.357   1.3
-## 2     2 Quinc~ PF       28 PHO      10     0  12.3   0.4   1.8     0.222   0.2
-## 3     3 Jayle~ PG       22 ATL      34     1  12.6   1.1   3.2     0.345   0.7
-## 4     4 Steve~ C        25 OKC      80    80  33.4   6    10.1     0.595   0  
-## 5     5 Bam A~ C        21 MIA      82    28  23.3   3.4   5.9     0.576   0  
-## 6     6 Deng ~ SF       21 CLE      19     3  10.2   0.6   1.9     0.306   0.3
-## # ... with 19 more variables: x3pa &lt;dbl&gt;, x3ppercent &lt;dbl&gt;, x2p &lt;dbl&gt;,
-## #   x2pa &lt;dbl&gt;, x2ppercent &lt;dbl&gt;, efgpercent &lt;dbl&gt;, ft &lt;dbl&gt;, fta &lt;dbl&gt;,
-## #   ftpercent &lt;dbl&gt;, orb &lt;dbl&gt;, drb &lt;dbl&gt;, trb &lt;dbl&gt;, ast &lt;dbl&gt;, stl &lt;dbl&gt;,
-## #   blk &lt;dbl&gt;, tov &lt;dbl&gt;, pf &lt;dbl&gt;, pts &lt;dbl&gt;, link &lt;chr&gt;</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="right">rk</th>
+<th align="left">player</th>
+<th align="left">pos</th>
+<th align="right">age</th>
+<th align="left">tm</th>
+<th align="right">g</th>
+<th align="right">gs</th>
+<th align="right">mp</th>
+<th align="right">fg</th>
+<th align="right">fga</th>
+<th align="right">fgpercent</th>
+<th align="right">x3p</th>
+<th align="right">x3pa</th>
+<th align="right">x3ppercent</th>
+<th align="right">x2p</th>
+<th align="right">x2pa</th>
+<th align="right">x2ppercent</th>
+<th align="right">efgpercent</th>
+<th align="right">ft</th>
+<th align="right">fta</th>
+<th align="right">ftpercent</th>
+<th align="right">orb</th>
+<th align="right">drb</th>
+<th align="right">trb</th>
+<th align="right">ast</th>
+<th align="right">stl</th>
+<th align="right">blk</th>
+<th align="right">tov</th>
+<th align="right">pf</th>
+<th align="right">pts</th>
+<th align="left">link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">Álex Abrines</td>
+<td align="left">SG</td>
+<td align="right">25</td>
+<td align="left">OKC</td>
+<td align="right">31</td>
+<td align="right">2</td>
+<td align="right">19.0</td>
+<td align="right">1.8</td>
+<td align="right">5.1</td>
+<td align="right">0.357</td>
+<td align="right">1.3</td>
+<td align="right">4.1</td>
+<td align="right">0.323</td>
+<td align="right">0.5</td>
+<td align="right">1.0</td>
+<td align="right">0.500</td>
+<td align="right">0.487</td>
+<td align="right">0.4</td>
+<td align="right">0.4</td>
+<td align="right">0.923</td>
+<td align="right">0.2</td>
+<td align="right">1.4</td>
+<td align="right">1.5</td>
+<td align="right">0.6</td>
+<td align="right">0.5</td>
+<td align="right">0.2</td>
+<td align="right">0.5</td>
+<td align="right">1.7</td>
+<td align="right">5.3</td>
+<td align="left">/players/a/abrinal01.html</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="left">Quincy Acy</td>
+<td align="left">PF</td>
+<td align="right">28</td>
+<td align="left">PHO</td>
+<td align="right">10</td>
+<td align="right">0</td>
+<td align="right">12.3</td>
+<td align="right">0.4</td>
+<td align="right">1.8</td>
+<td align="right">0.222</td>
+<td align="right">0.2</td>
+<td align="right">1.5</td>
+<td align="right">0.133</td>
+<td align="right">0.2</td>
+<td align="right">0.3</td>
+<td align="right">0.667</td>
+<td align="right">0.278</td>
+<td align="right">0.7</td>
+<td align="right">1.0</td>
+<td align="right">0.700</td>
+<td align="right">0.3</td>
+<td align="right">2.2</td>
+<td align="right">2.5</td>
+<td align="right">0.8</td>
+<td align="right">0.1</td>
+<td align="right">0.4</td>
+<td align="right">0.4</td>
+<td align="right">2.4</td>
+<td align="right">1.7</td>
+<td align="left">/players/a/acyqu01.html</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="left">Jaylen Adams</td>
+<td align="left">PG</td>
+<td align="right">22</td>
+<td align="left">ATL</td>
+<td align="right">34</td>
+<td align="right">1</td>
+<td align="right">12.6</td>
+<td align="right">1.1</td>
+<td align="right">3.2</td>
+<td align="right">0.345</td>
+<td align="right">0.7</td>
+<td align="right">2.2</td>
+<td align="right">0.338</td>
+<td align="right">0.4</td>
+<td align="right">1.1</td>
+<td align="right">0.361</td>
+<td align="right">0.459</td>
+<td align="right">0.2</td>
+<td align="right">0.3</td>
+<td align="right">0.778</td>
+<td align="right">0.3</td>
+<td align="right">1.4</td>
+<td align="right">1.8</td>
+<td align="right">1.9</td>
+<td align="right">0.4</td>
+<td align="right">0.1</td>
+<td align="right">0.8</td>
+<td align="right">1.3</td>
+<td align="right">3.2</td>
+<td align="left">/players/a/adamsja01.html</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="left">Steven Adams</td>
+<td align="left">C</td>
+<td align="right">25</td>
+<td align="left">OKC</td>
+<td align="right">80</td>
+<td align="right">80</td>
+<td align="right">33.4</td>
+<td align="right">6.0</td>
+<td align="right">10.1</td>
+<td align="right">0.595</td>
+<td align="right">0.0</td>
+<td align="right">0.0</td>
+<td align="right">0.000</td>
+<td align="right">6.0</td>
+<td align="right">10.1</td>
+<td align="right">0.596</td>
+<td align="right">0.595</td>
+<td align="right">1.8</td>
+<td align="right">3.7</td>
+<td align="right">0.500</td>
+<td align="right">4.9</td>
+<td align="right">4.6</td>
+<td align="right">9.5</td>
+<td align="right">1.6</td>
+<td align="right">1.5</td>
+<td align="right">1.0</td>
+<td align="right">1.7</td>
+<td align="right">2.6</td>
+<td align="right">13.9</td>
+<td align="left">/players/a/adamsst01.html</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="left">Bam Adebayo</td>
+<td align="left">C</td>
+<td align="right">21</td>
+<td align="left">MIA</td>
+<td align="right">82</td>
+<td align="right">28</td>
+<td align="right">23.3</td>
+<td align="right">3.4</td>
+<td align="right">5.9</td>
+<td align="right">0.576</td>
+<td align="right">0.0</td>
+<td align="right">0.2</td>
+<td align="right">0.200</td>
+<td align="right">3.4</td>
+<td align="right">5.7</td>
+<td align="right">0.588</td>
+<td align="right">0.579</td>
+<td align="right">2.0</td>
+<td align="right">2.8</td>
+<td align="right">0.735</td>
+<td align="right">2.0</td>
+<td align="right">5.3</td>
+<td align="right">7.3</td>
+<td align="right">2.2</td>
+<td align="right">0.9</td>
+<td align="right">0.8</td>
+<td align="right">1.5</td>
+<td align="right">2.5</td>
+<td align="right">8.9</td>
+<td align="left">/players/a/adebaba01.html</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="left">Deng Adel</td>
+<td align="left">SF</td>
+<td align="right">21</td>
+<td align="left">CLE</td>
+<td align="right">19</td>
+<td align="right">3</td>
+<td align="right">10.2</td>
+<td align="right">0.6</td>
+<td align="right">1.9</td>
+<td align="right">0.306</td>
+<td align="right">0.3</td>
+<td align="right">1.2</td>
+<td align="right">0.261</td>
+<td align="right">0.3</td>
+<td align="right">0.7</td>
+<td align="right">0.385</td>
+<td align="right">0.389</td>
+<td align="right">0.2</td>
+<td align="right">0.2</td>
+<td align="right">1.000</td>
+<td align="right">0.2</td>
+<td align="right">0.8</td>
+<td align="right">1.0</td>
+<td align="right">0.3</td>
+<td align="right">0.1</td>
+<td align="right">0.2</td>
+<td align="right">0.3</td>
+<td align="right">0.7</td>
+<td align="right">1.7</td>
+<td align="left">/players/a/adelde01.html</td>
+</tr>
+</tbody>
+</table>
 <p>Here are the column names for our data frame</p>
 <pre><code>##  [1] &quot;rk&quot;         &quot;player&quot;     &quot;pos&quot;        &quot;age&quot;        &quot;tm&quot;        
 ##  [6] &quot;g&quot;          &quot;gs&quot;         &quot;mp&quot;         &quot;fg&quot;         &quot;fga&quot;       
@@ -259,47 +483,511 @@ summary {
 <p>• “pf”</p>
 <p>• “pts”</p>
 <p>• “tpts”</p>
-<pre><code>## # A tibble: 6 x 28
-##   player pos       g    gs   age    mp    fg   fga fgpercent   x3p  x3pa
-##   &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1 Álex ~ SG       31     2    25  19     1.8   5.1     0.357   1.3   4.1
-## 2 Quinc~ PF       10     0    28  12.3   0.4   1.8     0.222   0.2   1.5
-## 3 Jayle~ PG       34     1    22  12.6   1.1   3.2     0.345   0.7   2.2
-## 4 Steve~ C        80    80    25  33.4   6    10.1     0.595   0     0  
-## 5 Bam A~ C        82    28    21  23.3   3.4   5.9     0.576   0     0.2
-## 6 Deng ~ SF       19     3    21  10.2   0.6   1.9     0.306   0.3   1.2
-## # ... with 17 more variables: x3ppercent &lt;dbl&gt;, x2p &lt;dbl&gt;, x2pa &lt;dbl&gt;,
-## #   x2ppercent &lt;dbl&gt;, efgpercent &lt;dbl&gt;, ft &lt;dbl&gt;, fta &lt;dbl&gt;, ftpercent &lt;dbl&gt;,
-## #   orb &lt;dbl&gt;, drb &lt;dbl&gt;, trb &lt;dbl&gt;, ast &lt;dbl&gt;, stl &lt;dbl&gt;, blk &lt;dbl&gt;,
-## #   tov &lt;dbl&gt;, pf &lt;dbl&gt;, pts &lt;dbl&gt;</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">player</th>
+<th align="left">pos</th>
+<th align="right">g</th>
+<th align="right">gs</th>
+<th align="right">age</th>
+<th align="right">mp</th>
+<th align="right">fg</th>
+<th align="right">fga</th>
+<th align="right">fgpercent</th>
+<th align="right">x3p</th>
+<th align="right">x3pa</th>
+<th align="right">x3ppercent</th>
+<th align="right">x2p</th>
+<th align="right">x2pa</th>
+<th align="right">x2ppercent</th>
+<th align="right">efgpercent</th>
+<th align="right">ft</th>
+<th align="right">fta</th>
+<th align="right">ftpercent</th>
+<th align="right">orb</th>
+<th align="right">drb</th>
+<th align="right">trb</th>
+<th align="right">ast</th>
+<th align="right">stl</th>
+<th align="right">blk</th>
+<th align="right">tov</th>
+<th align="right">pf</th>
+<th align="right">pts</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Álex Abrines</td>
+<td align="left">SG</td>
+<td align="right">31</td>
+<td align="right">2</td>
+<td align="right">25</td>
+<td align="right">19.0</td>
+<td align="right">1.8</td>
+<td align="right">5.1</td>
+<td align="right">0.357</td>
+<td align="right">1.3</td>
+<td align="right">4.1</td>
+<td align="right">0.323</td>
+<td align="right">0.5</td>
+<td align="right">1.0</td>
+<td align="right">0.500</td>
+<td align="right">0.487</td>
+<td align="right">0.4</td>
+<td align="right">0.4</td>
+<td align="right">0.923</td>
+<td align="right">0.2</td>
+<td align="right">1.4</td>
+<td align="right">1.5</td>
+<td align="right">0.6</td>
+<td align="right">0.5</td>
+<td align="right">0.2</td>
+<td align="right">0.5</td>
+<td align="right">1.7</td>
+<td align="right">5.3</td>
+</tr>
+<tr class="even">
+<td align="left">Quincy Acy</td>
+<td align="left">PF</td>
+<td align="right">10</td>
+<td align="right">0</td>
+<td align="right">28</td>
+<td align="right">12.3</td>
+<td align="right">0.4</td>
+<td align="right">1.8</td>
+<td align="right">0.222</td>
+<td align="right">0.2</td>
+<td align="right">1.5</td>
+<td align="right">0.133</td>
+<td align="right">0.2</td>
+<td align="right">0.3</td>
+<td align="right">0.667</td>
+<td align="right">0.278</td>
+<td align="right">0.7</td>
+<td align="right">1.0</td>
+<td align="right">0.700</td>
+<td align="right">0.3</td>
+<td align="right">2.2</td>
+<td align="right">2.5</td>
+<td align="right">0.8</td>
+<td align="right">0.1</td>
+<td align="right">0.4</td>
+<td align="right">0.4</td>
+<td align="right">2.4</td>
+<td align="right">1.7</td>
+</tr>
+<tr class="odd">
+<td align="left">Jaylen Adams</td>
+<td align="left">PG</td>
+<td align="right">34</td>
+<td align="right">1</td>
+<td align="right">22</td>
+<td align="right">12.6</td>
+<td align="right">1.1</td>
+<td align="right">3.2</td>
+<td align="right">0.345</td>
+<td align="right">0.7</td>
+<td align="right">2.2</td>
+<td align="right">0.338</td>
+<td align="right">0.4</td>
+<td align="right">1.1</td>
+<td align="right">0.361</td>
+<td align="right">0.459</td>
+<td align="right">0.2</td>
+<td align="right">0.3</td>
+<td align="right">0.778</td>
+<td align="right">0.3</td>
+<td align="right">1.4</td>
+<td align="right">1.8</td>
+<td align="right">1.9</td>
+<td align="right">0.4</td>
+<td align="right">0.1</td>
+<td align="right">0.8</td>
+<td align="right">1.3</td>
+<td align="right">3.2</td>
+</tr>
+<tr class="even">
+<td align="left">Steven Adams</td>
+<td align="left">C</td>
+<td align="right">80</td>
+<td align="right">80</td>
+<td align="right">25</td>
+<td align="right">33.4</td>
+<td align="right">6.0</td>
+<td align="right">10.1</td>
+<td align="right">0.595</td>
+<td align="right">0.0</td>
+<td align="right">0.0</td>
+<td align="right">0.000</td>
+<td align="right">6.0</td>
+<td align="right">10.1</td>
+<td align="right">0.596</td>
+<td align="right">0.595</td>
+<td align="right">1.8</td>
+<td align="right">3.7</td>
+<td align="right">0.500</td>
+<td align="right">4.9</td>
+<td align="right">4.6</td>
+<td align="right">9.5</td>
+<td align="right">1.6</td>
+<td align="right">1.5</td>
+<td align="right">1.0</td>
+<td align="right">1.7</td>
+<td align="right">2.6</td>
+<td align="right">13.9</td>
+</tr>
+<tr class="odd">
+<td align="left">Bam Adebayo</td>
+<td align="left">C</td>
+<td align="right">82</td>
+<td align="right">28</td>
+<td align="right">21</td>
+<td align="right">23.3</td>
+<td align="right">3.4</td>
+<td align="right">5.9</td>
+<td align="right">0.576</td>
+<td align="right">0.0</td>
+<td align="right">0.2</td>
+<td align="right">0.200</td>
+<td align="right">3.4</td>
+<td align="right">5.7</td>
+<td align="right">0.588</td>
+<td align="right">0.579</td>
+<td align="right">2.0</td>
+<td align="right">2.8</td>
+<td align="right">0.735</td>
+<td align="right">2.0</td>
+<td align="right">5.3</td>
+<td align="right">7.3</td>
+<td align="right">2.2</td>
+<td align="right">0.9</td>
+<td align="right">0.8</td>
+<td align="right">1.5</td>
+<td align="right">2.5</td>
+<td align="right">8.9</td>
+</tr>
+<tr class="even">
+<td align="left">Deng Adel</td>
+<td align="left">SF</td>
+<td align="right">19</td>
+<td align="right">3</td>
+<td align="right">21</td>
+<td align="right">10.2</td>
+<td align="right">0.6</td>
+<td align="right">1.9</td>
+<td align="right">0.306</td>
+<td align="right">0.3</td>
+<td align="right">1.2</td>
+<td align="right">0.261</td>
+<td align="right">0.3</td>
+<td align="right">0.7</td>
+<td align="right">0.385</td>
+<td align="right">0.389</td>
+<td align="right">0.2</td>
+<td align="right">0.2</td>
+<td align="right">1.000</td>
+<td align="right">0.2</td>
+<td align="right">0.8</td>
+<td align="right">1.0</td>
+<td align="right">0.3</td>
+<td align="right">0.1</td>
+<td align="right">0.2</td>
+<td align="right">0.3</td>
+<td align="right">0.7</td>
+<td align="right">1.7</td>
+</tr>
+</tbody>
+</table>
 <p>Here is the row for the 2019 NBA MVP Giannis Antetokounmpo statistics for the regular season.</p>
-<pre><code>## # A tibble: 1 x 28
-##   player pos       g    gs   age    mp    fg   fga fgpercent   x3p  x3pa
-##   &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1 Giann~ PF       72    72    24  32.8    10  17.3     0.578   0.7   2.8
-## # ... with 17 more variables: x3ppercent &lt;dbl&gt;, x2p &lt;dbl&gt;, x2pa &lt;dbl&gt;,
-## #   x2ppercent &lt;dbl&gt;, efgpercent &lt;dbl&gt;, ft &lt;dbl&gt;, fta &lt;dbl&gt;, ftpercent &lt;dbl&gt;,
-## #   orb &lt;dbl&gt;, drb &lt;dbl&gt;, trb &lt;dbl&gt;, ast &lt;dbl&gt;, stl &lt;dbl&gt;, blk &lt;dbl&gt;,
-## #   tov &lt;dbl&gt;, pf &lt;dbl&gt;, pts &lt;dbl&gt;</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">player</th>
+<th align="left">pos</th>
+<th align="right">g</th>
+<th align="right">gs</th>
+<th align="right">age</th>
+<th align="right">mp</th>
+<th align="right">fg</th>
+<th align="right">fga</th>
+<th align="right">fgpercent</th>
+<th align="right">x3p</th>
+<th align="right">x3pa</th>
+<th align="right">x3ppercent</th>
+<th align="right">x2p</th>
+<th align="right">x2pa</th>
+<th align="right">x2ppercent</th>
+<th align="right">efgpercent</th>
+<th align="right">ft</th>
+<th align="right">fta</th>
+<th align="right">ftpercent</th>
+<th align="right">orb</th>
+<th align="right">drb</th>
+<th align="right">trb</th>
+<th align="right">ast</th>
+<th align="right">stl</th>
+<th align="right">blk</th>
+<th align="right">tov</th>
+<th align="right">pf</th>
+<th align="right">pts</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Giannis Antetokounmpo</td>
+<td align="left">PF</td>
+<td align="right">72</td>
+<td align="right">72</td>
+<td align="right">24</td>
+<td align="right">32.8</td>
+<td align="right">10</td>
+<td align="right">17.3</td>
+<td align="right">0.578</td>
+<td align="right">0.7</td>
+<td align="right">2.8</td>
+<td align="right">0.256</td>
+<td align="right">9.3</td>
+<td align="right">14.5</td>
+<td align="right">0.641</td>
+<td align="right">0.599</td>
+<td align="right">6.9</td>
+<td align="right">9.5</td>
+<td align="right">0.729</td>
+<td align="right">2.2</td>
+<td align="right">10.3</td>
+<td align="right">12.5</td>
+<td align="right">5.9</td>
+<td align="right">1.3</td>
+<td align="right">1.5</td>
+<td align="right">3.7</td>
+<td align="right">3.2</td>
+<td align="right">27.7</td>
+</tr>
+</tbody>
+</table>
 <p>Now we must normalize and standardize each column because larger variables have a greater effect on the distance between the observations, and hence on the overall KNN classifier, than smaller variables. Thus each variable will have a mean of 0 and a standard deviation of 1.</p>
 <p>Since we are trying to categorizes players by the total amount of points scored, we will save the ‘tpts’ column separately.</p>
 </div>
 <div id="standardizing-data" class="section level2">
 <h2>Standardizing Data</h2>
 <p>Using the scale function in R, we will now standardize the rest of the PerGame dataset</p>
-<pre><code>## # A tibble: 6 x 28
-##   player pos        g     gs    age      mp     fg    fga fgpercent    x3p
-##   &lt;chr&gt;  &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt;
-## 1 Álex ~ SG    -0.452 -0.690 -0.276 -0.0294 -0.610 -0.406    -0.730  0.527
-## 2 Quinc~ PF    -1.25  -0.768  0.449 -0.772  -1.27  -1.16     -1.96  -0.867
-## 3 Jayle~ PG    -0.338 -0.729 -1.00  -0.739  -0.941 -0.838    -0.839 -0.233
-## 4 Steve~ C      1.41   2.33  -0.276  1.57    1.37   0.731     1.43  -1.12 
-## 5 Bam A~ C      1.49   0.315 -1.24   0.447   0.146 -0.224     1.26  -1.12 
-## 6 Deng ~ SF    -0.909 -0.652 -1.24  -1.00   -1.18  -1.13     -1.19  -0.741
-## # ... with 18 more variables: x3pa &lt;dbl&gt;, x3ppercent &lt;dbl&gt;, x2p &lt;dbl&gt;,
-## #   x2pa &lt;dbl&gt;, x2ppercent &lt;dbl&gt;, efgpercent &lt;dbl&gt;, ft &lt;dbl&gt;, fta &lt;dbl&gt;,
-## #   ftpercent &lt;dbl&gt;, orb &lt;dbl&gt;, drb &lt;dbl&gt;, trb &lt;dbl&gt;, ast &lt;dbl&gt;, stl &lt;dbl&gt;,
-## #   blk &lt;dbl&gt;, tov &lt;dbl&gt;, pf &lt;dbl&gt;, pts &lt;dbl&gt;</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">player</th>
+<th align="left">pos</th>
+<th align="right">g</th>
+<th align="right">gs</th>
+<th align="right">age</th>
+<th align="right">mp</th>
+<th align="right">fg</th>
+<th align="right">fga</th>
+<th align="right">fgpercent</th>
+<th align="right">x3p</th>
+<th align="right">x3pa</th>
+<th align="right">x3ppercent</th>
+<th align="right">x2p</th>
+<th align="right">x2pa</th>
+<th align="right">x2ppercent</th>
+<th align="right">efgpercent</th>
+<th align="right">ft</th>
+<th align="right">fta</th>
+<th align="right">ftpercent</th>
+<th align="right">orb</th>
+<th align="right">drb</th>
+<th align="right">trb</th>
+<th align="right">ast</th>
+<th align="right">stl</th>
+<th align="right">blk</th>
+<th align="right">tov</th>
+<th align="right">pf</th>
+<th align="right">pts</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Álex Abrines</td>
+<td align="left">SG</td>
+<td align="right">-0.4521250</td>
+<td align="right">-0.6901915</td>
+<td align="right">-0.2759252</td>
+<td align="right">-0.0293946</td>
+<td align="right">-0.6104422</td>
+<td align="right">-0.4060435</td>
+<td align="right">-0.7300242</td>
+<td align="right">0.5271520</td>
+<td align="right">0.7483735</td>
+<td align="right">0.0569648</td>
+<td align="right">-0.9716835</td>
+<td align="right">-1.0309463</td>
+<td align="right">0.0654535</td>
+<td align="right">-0.1120092</td>
+<td align="right">-0.7383836</td>
+<td align="right">-0.8650535</td>
+<td align="right">1.2778046</td>
+<td align="right">-0.8061146</td>
+<td align="right">-0.7157392</td>
+<td align="right">-0.8267956</td>
+<td align="right">-0.7516947</td>
+<td align="right">-0.2607481</td>
+<td align="right">-0.4397157</td>
+<td align="right">-0.7125465</td>
+<td align="right">-0.0306029</td>
+<td align="right">-0.5292066</td>
+</tr>
+<tr class="even">
+<td align="left">Quincy Acy</td>
+<td align="left">PF</td>
+<td align="right">-1.2511496</td>
+<td align="right">-0.7675349</td>
+<td align="right">0.4485064</td>
+<td align="right">-0.7718669</td>
+<td align="right">-1.2719380</td>
+<td align="right">-1.1567002</td>
+<td align="right">-1.9573290</td>
+<td align="right">-0.8673656</td>
+<td align="right">-0.5142110</td>
+<td align="right">-1.3036675</td>
+<td align="right">-1.1423630</td>
+<td align="right">-1.2477850</td>
+<td align="right">1.4879883</td>
+<td align="right">-1.8809823</td>
+<td align="right">-0.4965445</td>
+<td align="right">-0.4768076</td>
+<td align="right">-0.2761475</td>
+<td align="right">-0.6764329</td>
+<td align="right">-0.2880174</td>
+<td align="right">-0.4249205</td>
+<td align="right">-0.6299238</td>
+<td align="right">-1.2111196</td>
+<td align="right">0.0765674</td>
+<td align="right">-0.8461136</td>
+<td align="right">0.8311461</td>
+<td align="right">-1.1468930</td>
+</tr>
+<tr class="odd">
+<td align="left">Jaylen Adams</td>
+<td align="left">PG</td>
+<td align="right">-0.3379786</td>
+<td align="right">-0.7288632</td>
+<td align="right">-1.0003568</td>
+<td align="right">-0.7386219</td>
+<td align="right">-0.9411901</td>
+<td align="right">-0.8382398</td>
+<td align="right">-0.8391180</td>
+<td align="right">-0.2334940</td>
+<td align="right">-0.1742844</td>
+<td align="right">0.1643831</td>
+<td align="right">-1.0285767</td>
+<td align="right">-0.9999693</td>
+<td align="right">-1.1185725</td>
+<td align="right">-0.3490008</td>
+<td align="right">-0.8996097</td>
+<td align="right">-0.9297611</td>
+<td align="right">0.2673873</td>
+<td align="right">-0.6764329</td>
+<td align="right">-0.7157392</td>
+<td align="right">-0.7062330</td>
+<td align="right">0.0398163</td>
+<td align="right">-0.4983410</td>
+<td align="right">-0.6978572</td>
+<td align="right">-0.3118452</td>
+<td align="right">-0.5230308</td>
+<td align="right">-0.8895237</td>
+</tr>
+<tr class="even">
+<td align="left">Steven Adams</td>
+<td align="left">C</td>
+<td align="right">1.4122658</td>
+<td align="right">2.3262009</td>
+<td align="right">-0.2759252</td>
+<td align="right">1.5663668</td>
+<td align="right">1.3740455</td>
+<td align="right">0.7313152</td>
+<td align="right">1.4336686</td>
+<td align="right">-1.1209143</td>
+<td align="right">-1.2426251</td>
+<td align="right">-2.2561101</td>
+<td align="right">2.1574396</td>
+<td align="right">1.7879565</td>
+<td align="right">0.8831981</td>
+<td align="right">0.8021014</td>
+<td align="right">0.3901990</td>
+<td align="right">1.2702988</td>
+<td align="right">-1.6698266</td>
+<td align="right">5.2889251</td>
+<td align="right">0.9951478</td>
+<td align="right">2.3882051</td>
+<td align="right">-0.1428400</td>
+<td align="right">2.1151806</td>
+<td align="right">1.6254167</td>
+<td align="right">0.8902587</td>
+<td align="right">1.0773601</td>
+<td align="right">0.9463776</td>
+</tr>
+<tr class="odd">
+<td align="left">Bam Adebayo</td>
+<td align="left">C</td>
+<td align="right">1.4883634</td>
+<td align="right">0.3152727</td>
+<td align="right">-1.2418341</td>
+<td align="right">0.4471175</td>
+<td align="right">0.1455531</td>
+<td align="right">-0.2240661</td>
+<td align="right">1.2609368</td>
+<td align="right">-1.1209143</td>
+<td align="right">-1.1455032</td>
+<td align="right">-0.8238656</td>
+<td align="right">0.6782177</td>
+<td align="right">0.4249706</td>
+<td align="right">0.8150527</td>
+<td align="right">0.6666776</td>
+<td align="right">0.5514251</td>
+<td align="right">0.6879300</td>
+<td align="right">-0.0322537</td>
+<td align="right">1.5281559</td>
+<td align="right">1.3694043</td>
+<td align="right">1.5040799</td>
+<td align="right">0.2224727</td>
+<td align="right">0.6896234</td>
+<td align="right">1.1091336</td>
+<td align="right">0.6231245</td>
+<td align="right">0.9542531</td>
+<td align="right">0.0884798</td>
+</tr>
+<tr class="even">
+<td align="left">Deng Adel</td>
+<td align="left">SF</td>
+<td align="right">-0.9087105</td>
+<td align="right">-0.6515198</td>
+<td align="right">-1.2418341</td>
+<td align="right">-1.0045821</td>
+<td align="right">-1.1774386</td>
+<td align="right">-1.1339530</td>
+<td align="right">-1.1936727</td>
+<td align="right">-0.7405913</td>
+<td align="right">-0.6598938</td>
+<td align="right">-0.3870310</td>
+<td align="right">-1.0854698</td>
+<td align="right">-1.1238771</td>
+<td align="right">-0.9141364</td>
+<td align="right">-0.9414798</td>
+<td align="right">-0.8996097</td>
+<td align="right">-0.9944688</td>
+<td align="right">1.8143710</td>
+<td align="right">-0.8061146</td>
+<td align="right">-1.0365305</td>
+<td align="right">-1.0277331</td>
+<td align="right">-0.9343511</td>
+<td align="right">-1.2111196</td>
+<td align="right">-0.4397157</td>
+<td align="right">-0.9796807</td>
+<td align="right">-1.2616728</td>
+<td align="right">-1.1468930</td>
+</tr>
+</tbody>
+</table>
 <p>Lets do a quick check on variance of the feild goal column, ‘fg’ to verify that the scaling worked.</p>
 <pre><code>##    fg
 ## fg  1</code></pre>
